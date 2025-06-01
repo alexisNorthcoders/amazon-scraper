@@ -106,6 +106,7 @@ async function run() {
     const products = await getProducts();
     for (const product of products) {
         await checkProduct(product);
+        await new Promise(res => setTimeout(res, 60000));
     }
 }
 
