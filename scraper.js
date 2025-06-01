@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer';
+import { trimTitle } from './utils.js';
 
 export async function scrape(url) {
   const browser = await puppeteer.launch({
@@ -15,7 +16,8 @@ export async function scrape(url) {
   try {
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
-    const title = await page.$eval('#productTitle', el => el.textContent.trim());
+    const rawTitle = await page.$eval('#productTitle', el => el.textContent.trim());
+    const title = trimTitle(rawTitle);
     const price = await page.$eval('#tp_price_block_total_price_ww .a-offscreen', el => el.textContent.trim());
 
     return { title, price, timestamp: new Date().toISOString() };
