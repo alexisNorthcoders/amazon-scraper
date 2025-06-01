@@ -11,6 +11,7 @@ This Node.js app tracks the price of a specific Amazon product every 30 minutes.
 - ✅ Detects price changes with a GET request
 - ✅ Sends an email when a price change is detected
 - ✅ Runs automatically every 30 minutes using `node-cron`
+- ✅ CLI command to add new product `node index.js add-product "https://www.amazon.co.uk/dp/B00TEST1234" "Test Product"`
 
 ---
 
