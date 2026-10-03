@@ -4,7 +4,7 @@ import { scrape } from './scraper.js';
 import fs from 'fs/promises';
 
 const EMAIL_ENDPOINT = 'http://localhost:5555/contact';
-const API = 'http://localhost:7000'
+const API = 'http://localhost:8080'
 
 
 async function getProducts() {
